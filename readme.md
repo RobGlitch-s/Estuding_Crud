@@ -1,156 +1,150 @@
-PROJETO: APP CRUD DE ALUNOS (PYTHON + SQLITE + CUSTOMTKINTER)
+# 📚 Projeto: App CRUD de Alunos  
+**Tecnologias:** Python + SQLite + CustomTkinter  
 
-=====================================================
-1. INÍCIO DO PROJETO
-=====================================================
+---
 
-USUÁRIO SOLICITOU:
-Criar um app simples com CRUD usando Python, SQLite e CustomTkinter com separação em:
-- Frontend
-- Backend
-- Main
+## 🚀 1. Início do Projeto
 
-RESPOSTA:
-Foi criada a estrutura base do projeto com:
-- database.py (SQLite CRUD básico)
-- app.py (interface simples)
-- main.py (inicialização)
+**Requisito inicial:**
+Criar um aplicativo simples com operações CRUD utilizando:
+- Python
+- SQLite
+- CustomTkinter
 
-Modelo inicial de dados:
-- id automático
-- nome
-- idade
+**Arquitetura definida:**
+- `database.py` → Backend (operações com banco de dados)
+- `app.py` → Frontend (interface gráfica)
+- `main.py` → Inicialização do sistema
 
-=====================================================
-2. DEFINIÇÃO DO MODELO REAL
-=====================================================
+**Modelo inicial de dados:**
+- `id` (automático)
+- `nome`
+- `idade`
 
-USUÁRIO ALTEROU REQUISITO:
-Banco agora deve ser uma tabela de alunos com:
-- nome
-- RA (chave primária)
-- data de nascimento
+---
 
-RESPOSTA:
-Alteração do banco:
-- RA passou a ser PRIMARY KEY
-- Estrutura ajustada para "alunos"
+## 🧱 2. Definição do Modelo Real
 
-=====================================================
-3. MELHORIA: SELEÇÃO DE REGISTROS
-=====================================================
+**Alteração de requisito:**
+A aplicação passou a trabalhar com uma tabela de alunos contendo:
+- `nome`
+- `RA` (chave primária)
+- `data de nascimento`
 
-USUÁRIO SOLICITOU:
-Implementar upgrade recomendado: seleção de registros na interface
+**Mudanças aplicadas:**
+- `RA` definido como `PRIMARY KEY`
+- Estrutura da tabela ajustada para `alunos`
 
-RESPOSTA:
-Foi adicionado:
-- Treeview (tabela)
-- Clique para selecionar aluno
-- Preenchimento automático dos campos
-- Função on_select
+---
 
-Resultado:
-CRUD passou a funcionar com seleção real
+## 🖱️ 3. Melhoria: Seleção de Registros
 
-=====================================================
-4. ALTERAÇÃO DO RA (AUTOMÁTICO)
-=====================================================
+**Requisito:**
+Adicionar seleção de registros na interface
 
-USUÁRIO DEFINIU:
-RA deve ser automático e sempre único
+**Implementação:**
+- Componente `Treeview` (tabela)
+- Seleção de aluno via clique
+- Preenchimento automático dos campos do formulário
+- Função `on_select`
 
-RESPOSTA:
-Mudança estrutural:
-- RA passou a ser INTEGER AUTOINCREMENT
-- Usuário não digita mais RA
-- RA removido do formulário
+**Resultado:**
+CRUD passou a operar com seleção real de registros
 
-=====================================================
-5. MELHORIA NA DATA DE NASCIMENTO
-=====================================================
+---
 
-USUÁRIO SOLICITOU:
-Corrigir problema de data (formato inválido e dependência de /)
+## 🔢 4. Alteração do RA (Automático)
 
-RESPOSTA:
-Implementado:
-- Validação com datetime
-- Conversão entre formatos:
-  - Interface: DD/MM/AAAA
-  - Banco: YYYY-MM-DD
-- Rejeição de datas inválidas e futuras
+**Requisito:**
+RA deve ser automático e único
 
-=====================================================
-6. UX DA DATA (MÁSCARA)
-=====================================================
+**Implementação:**
+- `RA` alterado para `INTEGER AUTOINCREMENT`
+- Remoção do campo RA do formulário
+- Controle totalmente interno pelo banco
 
-USUÁRIO SOLICITOU:
-Permitir digitar sem precisar colocar "/"
+---
 
-RESPOSTA:
-Implementado:
+## 📅 5. Melhoria na Data de Nascimento
+
+**Problema:**
+- Formato inválido
+- Dependência do uso de `/`
+
+**Solução:**
+- Validação com `datetime`
+- Conversão de formatos:
+  - Interface: `DD/MM/AAAA`
+  - Banco: `YYYY-MM-DD`
+- Rejeição de:
+  - Datas inválidas
+  - Datas futuras
+
+---
+
+## ✍️ 6. UX da Data (Máscara)
+
+**Requisito:**
+Permitir digitação sem precisar inserir `/`
+
+**Implementação:**
 - Máscara automática de data
-- Usuário digita apenas números
-- Sistema formata automaticamente para DD/MM/AAAA
+- Entrada apenas de números
+- Formatação automática
 
-Exemplo:
+**Exemplo:**
 Entrada: 18082000
 Saída: 18/08/2000
 
-=====================================================
-7. MELHOR PRÁTICA (UX + SEGURANÇA)
-=====================================================
+---
 
-USUÁRIO SOLICITOU:
-Evitar erro de digitação e melhorar experiência
+## 🔒 7. Boas Práticas (UX + Segurança)
 
-RESPOSTA:
-Implementado:
+**Melhorias:**
 - Bloqueio de letras no campo de data
-- Validação com datetime.strptime
-- Controle de data futura
+- Validação com `datetime.strptime`
+- Verificação de data futura
 
-=====================================================
-8. MELHORIAS OPCIONAIS IMPLEMENTADAS
-=====================================================
+---
 
-USUÁRIO SOLICITOU:
-Date picker (calendário)
+## 📆 8. Melhorias Opcionais Implementadas
 
-RESPOSTA:
-Adicionado:
-- tkcalendar
-- botão “Selecionar Data”
-- popup com calendário
-- preenchimento automático do campo
+**Recurso adicional:**
+Date Picker (calendário)
 
-=====================================================
-9. VERSÃO FINAL DO SISTEMA
-=====================================================
+**Implementação:**
+- Biblioteca `tkcalendar`
+- Botão "Selecionar Data"
+- Popup com calendário
+- Preenchimento automático do campo
 
-FUNCIONALIDADES FINAIS:
+---
+
+## ✅ 9. Versão Final do Sistema
+
+### Funcionalidades
 
 - CRUD completo de alunos
 - RA automático (chave primária)
 - Nome obrigatório
 - Data de nascimento com:
-  - máscara automática
-  - validação
-  - calendário
-  - conversão de formatos
+  - Máscara automática
+  - Validação
+  - Calendário interativo
+  - Conversão de formatos
 
-- Interface com:
-  - CustomTkinter
-  - Treeview (tabela)
-  - seleção de registros
+### Interface
 
-FLUXO FINAL:
-CREATE → VALIDAR → CONVERTER → INSERIR
-READ   → LISTAR NA TABELA
-UPDATE → SELECIONAR → EDITAR → SALVAR
-DELETE → SELECIONAR → CONFIRMAR → REMOVER
+- CustomTkinter
+- Treeview (tabela)
+- Seleção de registros
 
-=====================================================
-FIM DO HISTÓRICO
-=====================================================
+---
+
+## 🔄 Fluxo do Sistema
+
+```text
+CREATE → VALIDAR → CONVERTER → INSERIR  
+READ   → LISTAR NA TABELA  
+UPDATE → SELECIONAR → EDITAR → SALVAR  
+DELETE → SELECIONAR → CONFIRMAR → REMOVER  
