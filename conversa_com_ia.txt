@@ -1,0 +1,156 @@
+PROJETO: APP CRUD DE ALUNOS (PYTHON + SQLITE + CUSTOMTKINTER)
+
+=====================================================
+1. INÍCIO DO PROJETO
+=====================================================
+
+USUÁRIO SOLICITOU:
+Criar um app simples com CRUD usando Python, SQLite e CustomTkinter com separação em:
+- Frontend
+- Backend
+- Main
+
+RESPOSTA:
+Foi criada a estrutura base do projeto com:
+- database.py (SQLite CRUD básico)
+- app.py (interface simples)
+- main.py (inicialização)
+
+Modelo inicial de dados:
+- id automático
+- nome
+- idade
+
+=====================================================
+2. DEFINIÇÃO DO MODELO REAL
+=====================================================
+
+USUÁRIO ALTEROU REQUISITO:
+Banco agora deve ser uma tabela de alunos com:
+- nome
+- RA (chave primária)
+- data de nascimento
+
+RESPOSTA:
+Alteração do banco:
+- RA passou a ser PRIMARY KEY
+- Estrutura ajustada para "alunos"
+
+=====================================================
+3. MELHORIA: SELEÇÃO DE REGISTROS
+=====================================================
+
+USUÁRIO SOLICITOU:
+Implementar upgrade recomendado: seleção de registros na interface
+
+RESPOSTA:
+Foi adicionado:
+- Treeview (tabela)
+- Clique para selecionar aluno
+- Preenchimento automático dos campos
+- Função on_select
+
+Resultado:
+CRUD passou a funcionar com seleção real
+
+=====================================================
+4. ALTERAÇÃO DO RA (AUTOMÁTICO)
+=====================================================
+
+USUÁRIO DEFINIU:
+RA deve ser automático e sempre único
+
+RESPOSTA:
+Mudança estrutural:
+- RA passou a ser INTEGER AUTOINCREMENT
+- Usuário não digita mais RA
+- RA removido do formulário
+
+=====================================================
+5. MELHORIA NA DATA DE NASCIMENTO
+=====================================================
+
+USUÁRIO SOLICITOU:
+Corrigir problema de data (formato inválido e dependência de /)
+
+RESPOSTA:
+Implementado:
+- Validação com datetime
+- Conversão entre formatos:
+  - Interface: DD/MM/AAAA
+  - Banco: YYYY-MM-DD
+- Rejeição de datas inválidas e futuras
+
+=====================================================
+6. UX DA DATA (MÁSCARA)
+=====================================================
+
+USUÁRIO SOLICITOU:
+Permitir digitar sem precisar colocar "/"
+
+RESPOSTA:
+Implementado:
+- Máscara automática de data
+- Usuário digita apenas números
+- Sistema formata automaticamente para DD/MM/AAAA
+
+Exemplo:
+Entrada: 18082000
+Saída: 18/08/2000
+
+=====================================================
+7. MELHOR PRÁTICA (UX + SEGURANÇA)
+=====================================================
+
+USUÁRIO SOLICITOU:
+Evitar erro de digitação e melhorar experiência
+
+RESPOSTA:
+Implementado:
+- Bloqueio de letras no campo de data
+- Validação com datetime.strptime
+- Controle de data futura
+
+=====================================================
+8. MELHORIAS OPCIONAIS IMPLEMENTADAS
+=====================================================
+
+USUÁRIO SOLICITOU:
+Date picker (calendário)
+
+RESPOSTA:
+Adicionado:
+- tkcalendar
+- botão “Selecionar Data”
+- popup com calendário
+- preenchimento automático do campo
+
+=====================================================
+9. VERSÃO FINAL DO SISTEMA
+=====================================================
+
+FUNCIONALIDADES FINAIS:
+
+- CRUD completo de alunos
+- RA automático (chave primária)
+- Nome obrigatório
+- Data de nascimento com:
+  - máscara automática
+  - validação
+  - calendário
+  - conversão de formatos
+
+- Interface com:
+  - CustomTkinter
+  - Treeview (tabela)
+  - seleção de registros
+
+FLUXO FINAL:
+CREATE → VALIDAR → CONVERTER → INSERIR
+READ   → LISTAR NA TABELA
+UPDATE → SELECIONAR → EDITAR → SALVAR
+DELETE → SELECIONAR → CONFIRMAR → REMOVER
+
+=====================================================
+FIM DO HISTÓRICO
+=====================================================
